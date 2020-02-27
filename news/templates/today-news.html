@@ -1,0 +1,23 @@
+{%extends 'all-news/base.html'%}
+
+{% block content %}
+    {% if articles %}
+    {% for article in articles %}
+    <div class="row">
+        <!-- displaying News articles -->
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <a href="{url 'search'}" class="text-center">{{article.title}}</a>
+        <p class="card-body">{{article.editor}}</p>
+        <p class="card-body">{{article.pub_date}}</p>
+        </div>
+        <!--Display news Article images  -->
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+             <img src="{{article.article_image.url}}" width="500rem" class="img-responsive" >
+        </div>
+    {% endfor %}
+    {% endif %}
+
+  </div>
+{{block.super}}
+
+{% endblock %}
